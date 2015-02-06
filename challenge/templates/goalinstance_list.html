@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <div class="navbar-brand">Relationship Challenge</div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container theme-showcase" role="main">
+
+      <!-- Main jumbotron for a primary marketing message or call to action -->
+      <div class="jumbotron">
+        <h1>Hi {{ user.first_name }}, welcome back!</h1>
+        {% if new_goal %}
+        <h2>It's a new week and here's your brand new goal:</h2>
+        {% else %}
+        <h2>Here's your challenge for this week:</h2>
+        {% endif %}
+        {% for goalinstance in object_list %}
+          <div class="goalinstance"><p>{{ goalinstance }}</p></div>
+        {% endfor %}
+      </div>
+
+{% endblock %}
